@@ -1,0 +1,752 @@
+:root {
+  --bg:#FCF9F6;
+  --interactive:#E4CDB7;
+  --border: #DCBC9F;
+  --solid: #A07553;
+  --text: #3E332E;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px 40px; /* Ajusté pour équilibrer avec le logo */
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  z-index: 1000;
+}
+
+/* LOGO NAVBAR */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 70px; /* Logo agrandi */
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--interactive);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.logo:active img {
+  transform: scale(0.95);
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  color: var(--solid);
+  font-size: 1.3rem; /* Légèrement agrandi */
+  font-weight: 500;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.05rem;     /* Plus grand */
+  font-weight: 500;       /* Plus impactant */
+  letter-spacing: 0.5px;  /* Meilleure lisibilité */
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+/* MAIN */
+
+main {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* SECTIONS */
+
+.hero, .skills, .project {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* HERO */
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--solid);
+}
+
+.hero h2 {
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.hero p {
+  margin-top: 15px;
+  max-width: 400px;
+  font-size: 0.95rem;
+}
+
+/* SKILLS */
+
+.skills {
+  transform: translateY(100%);
+  z-index: 2;
+  justify-content: center; 
+  padding-top: 0; 
+  padding-bottom: 0;
+}
+
+.skills h1 {
+  margin-bottom: 40px;
+  transform: translateY(100px);
+  font-size: 1.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* CARDS */
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background: var(--interactive);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s ease;
+}
+
+.skill-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card i {
+  font-size: 1.5rem;
+  color: var(--solid);
+}
+
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* PROJECT */
+
+.project {
+  transform: translateY(100%);
+  z-index: 1;
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  width: 60%;
+  max-width: 700px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(62, 51, 46, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-overlay span {
+  color: white;
+  border: 1px solid white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.project-card:hover img {
+  transform: scale(1.08);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* CONTACT PAGE */
+
+.contact-page {
+  overflow: auto;
+}
+
+.linktree {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.left, .right {
+  flex: 1;
+}
+
+.left {
+  text-align: left;
+}
+
+/* LINKS */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 30px;
+  text-decoration: none;
+  background: var(--interactive);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.link-btn:hover {
+  transform: scale(1.05);
+  background: var(--solid);
+  color: white;
+}
+
+/* FORM */
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(62, 51, 46, 0.2);
+  background: rgba(255,255,255,0.5);
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--solid);
+  background: white;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.contact-form button {
+  align-self: center;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 1px solid var(--solid);
+  background: transparent;
+  color: var(--solid);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: var(--solid);
+  color: white;
+}
+
+/* TEXT ADDITIONS */
+
+.project-description {
+  max-width: 500px;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 500px;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+/* ========================= */
+/* HERO - LAYOUT 2 COLONNES  */
+/* ========================= */
+
+.hero {
+  padding: 40px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left; /* Surcharge du text-align:center */
+}
+
+.hero-text h1 {
+  margin-bottom: 10px;
+}
+
+.hero-text h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.hero-text p {
+  max-width: 500px; /* Plus adapté à une mise en page en colonnes */
+  line-height: 1.6;
+}
+
+/* IMAGE */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* BOUTONS */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--solid);
+  color: white;
+  border: 1px solid var(--solid);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--solid);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--solid);
+  border: 1px solid var(--solid);
+}
+
+.btn-secondary:hover {
+  background: var(--solid);
+  color: white;
+}
+/* ========================= */
+/* HERO - AJUSTEMENTS        */
+/* ========================= */
+
+/* Réduction de l'espace supérieur et meilleur centrage */
+.hero {
+  padding: 0 40px; /* Suppression du padding vertical */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Conteneur principal du hero */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px; /* Rapproche l'image du texte */
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Bloc texte */
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-text h1 {
+  margin-bottom: 10px;
+}
+
+.hero-text h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.hero-text p {
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* Bloc image */
+.hero-image {
+  flex: 1.2; /* Donne plus de place à l'image */
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 600px; /* Image plus grande */
+  height: auto;
+}
+
+/* Boutons */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 20px;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 320px;
+  }
+}
+/* ========================= */
+/* HERO - AJUSTEMENTS FINAUX */
+/* ========================= */
+
+.hero {
+  justify-content: flex-start; /* Remonte le contenu */
+  align-items: center;
+  padding: 40px 40px 0 40px; /* Espace léger sous la navbar uniquement */
+  text-align: left; /* Aligne le texte à gauche */
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row; /* Texte à gauche, image à droite */
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px; /* Rapproche l'image du texte */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Bloc texte */
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--solid);
+  margin-bottom: 10px;
+}
+
+.hero-text h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* Bloc image */
+.hero-image {
+  flex: 1.2; /* Donne plus de place à l'image */
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 620px; /* Image plus grande et impactante */
+  height: auto;
+}
+
+/* Boutons */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    flex-direction: column; /* Empilement sur mobile */
+    gap: 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 320px;
+  }
+}
+/* ========================= */
+/* FLÈCHE DE NAVIGATION      */
+/* ========================= */
+
+.scroll-down {
+  position: absolute;
+  bottom: 120px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--solid);
+  background: var(--bg);
+  color: var(--solid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: bounce 2s infinite;
+  z-index: 10;
+}
+
+.scroll-down:hover {
+  background: var(--solid);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Animation légère pour attirer l'attention */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+/* ========================= */
+/* MESSAGE DE CONFIRMATION   */
+/* ========================= */
+
+.form-message {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 12px;
+  background: var(--interactive);
+  border: 1px solid var(--border);
+  color: var(--text);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.form-message i {
+  font-size: 2rem;
+  color: var(--solid);
+  margin-bottom: 10px;
+}
+
+.form-message.show {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+}@media (max-width: 768px) {
+  .scroll-down {
+    bottom: 8vh;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}
