@@ -75,7 +75,29 @@ document.addEventListener("DOMContentLoaded", () => {
       changeSection(currentIndex - 1, "up");
     }
   });
+// =========================
+// NAVIGATION TACTILE (MOBILE)
+// =========================
+let touchStartY = 0;
 
+window.addEventListener("touchstart", (e) => {
+  touchStartY = e.touches[0].clientY;
+});
+
+window.addEventListener("touchend", (e) => {
+  if (isAnimating) return;
+
+  const touchEndY = e.changedTouches[0].clientY;
+  const diff = touchStartY - touchEndY;
+
+  if (Math.abs(diff) > 50) { // seuil pour éviter les faux mouvements
+    if (diff > 0 && currentIndex < sections.length - 1) {
+      changeSection(currentIndex + 1, "down");
+    } else if (diff < 0 && currentIndex > 0) {
+      changeSection(currentIndex - 1, "up");
+    }
+  }
+});
   // =========================
   // NAVIGATION AVEC LA FLÈCHE
   // =========================
@@ -89,9 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // =====================================================
-  // 📩 GESTION DU FORMULAIRE DE CONTACT (À PLACER ICI)
-  // =====================================================
+  // =================================
+  // GESTION DU FORMULAIRE DE CONTACT 
+  // ==================================
   if (typeof emailjs !== "undefined") {
     emailjs.init("nuynziyA5BWnmMb1m");
 

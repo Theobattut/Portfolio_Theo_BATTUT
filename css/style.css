@@ -750,3 +750,262 @@ main {
     font-size: 1rem;
   }
 }
+/* ========================= */
+/* NAVBAR - VERSION MOBILE   */
+/* ========================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+/* ========================= */
+/* HERO - VERSION MOBILE     */
+/* ========================= */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    height: auto;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-text p {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .hero-image img {
+    max-width: 280px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* ========================= */
+/* SKILLS - VERSION MOBILE   */
+/* ========================= */
+@media (max-width: 768px) {
+  .skills {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .skill-card {
+    padding: 15px;
+  }
+}
+/* ========================= */
+/* CONTACT - VERSION MOBILE  */
+/* ========================= */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .links {
+    align-items: center;
+    width: 100%;
+  }
+
+  .link-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+
+  /* Permet le scroll sur la page contact */
+  .contact-page {
+    overflow-y: auto;
+  }
+
+  main.linktree {
+    padding-bottom: 40px;
+  }
+}
+/* ========================= */
+/* SKILLS - CORRECTION MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+  .skills h1 {
+    transform: none;        /* Supprime le décalage vertical */
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 5;             /* Assure que le titre passe au-dessus des cartes */
+    text-align: center;
+  }
+
+  .skills-grid {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .skill-card {
+    opacity: 1;             /* Assure la visibilité sur mobile */
+    transform: none;
+  }
+}
+/* ========================= */
+/* HERO - IMAGE MOBILE       */
+/* ========================= */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+  }
+
+  .hero-image img {
+    max-width: 260px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-text p {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+/* ========================= */
+/* CONTACT - VERSION MOBILE  */
+/* ========================= */
+@media (max-width: 768px) {
+  body.contact-page main {
+    height: auto;
+    overflow: visible;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .links {
+    align-items: center;
+    width: 100%;
+  }
+
+  .link-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .contact-form textarea {
+    height: 120px;
+  }
+
+  .contact-form button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  main.linktree {
+    padding-bottom: 60px; /* Assure la visibilité du bouton */
+  }
+}
