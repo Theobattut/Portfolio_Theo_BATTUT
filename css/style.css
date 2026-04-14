@@ -1009,3 +1009,41 @@ main {
     padding-bottom: 60px; /* Assure la visibilité du bouton */
   }
 }
+/* ========================= */
+/* HERO - FIX HAUTEUR MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+  .hero,
+  .skills,
+  .project {
+    height: 100dvh; /* Hauteur réelle de l'écran sur mobile */
+    min-height: 100dvh;
+  }
+
+  .hero-content {
+    justify-content: center;
+    height: 100%;
+  }
+
+  /* Réduction légère des espacements pour éviter le débordement */
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-buttons {
+    margin-top: 15px;
+  }
+
+  .hero-image img {
+    max-width: 240px;
+  }
+}
